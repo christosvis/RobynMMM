@@ -76,9 +76,6 @@ head(dt_prophet_holidays)
 # Directory where you want to export results to (will create new folders)
 robyn_object <- "~/Desktop"
 
-### DEPRECATED: It must have extension .RDS. The object name can be different than Robyn:
-# robyn_object <- "~/Desktop/MyRobyn.RDS"
-
 ################################################################
 #### Step 2a: For first time user: Model specification in 4 steps
 
@@ -94,7 +91,7 @@ InputCollect <- robyn_inputs(
   dt_holidays = dt_prophet_holidays,
   date_var = "DATE", # date format must be "2020-01-01"
   
-  dep_var = "NPU", # there should be only one dependent variable
+  dep_var = "AppInstalls", # there should be only one dependent variable
   
   dep_var_type = "conversion", # "revenue" (ROI) or "conversion" (CPA)
   
@@ -104,8 +101,7 @@ InputCollect <- robyn_inputs(
    prophet_country = "US", 
   # input one country. dt_prophet_holidays includes 59 countries by default
   
-  # context_vars = c("Google_Trend_Abortion", "Google_Trend_Birth_Control",
-                  # "Covid_Cases"), 
+  # context_vars = c("Google_Trend", "Covid_Cases"), 
   # e.g. competitors, discount, unemployment etc
   
   paid_media_spends = c("Amazon_Spend", "Apple_Spend", "Bing_Spend", 
